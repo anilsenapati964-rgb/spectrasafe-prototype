@@ -266,7 +266,7 @@ def line_scene_html(result, stage, paused=False, cycle=0, running=False, duratio
     step_title,step_detail=LINE_STEPS[min(stage,5)]
     scene_state="PAUSED" if paused else ("LIVE PROCESS" if running else ("SEQUENCE COMPLETE" if stage==5 else "READY · PRESS START"))
     track_html="".join(f'<i class="{"done" if i<stage else "current" if i==stage else ""}"></i>' for i in range(6))
-    scene_svg='<img src="/app/static/industrial_conveyor.jpg" alt="Industrial conveyor with fixed inspection camera, edge computer and sorting gate">'
+    scene_svg='<img src="https://raw.githubusercontent.com/anilsenapati964-rgb/spectrasafe-prototype/main/static/industrial_conveyor.jpg" alt="Industrial conveyor with fixed inspection camera, edge computer and sorting gate">'
     return f"""
 <div class="ss3d-shell {route_class} {gate_class} {reject_class} {paused_class} {running_class} cycle-{cycle}" style="{timeline_vars}">
  <div class="ss3d-head"><div><strong>INLINE INSPECTION LINE · DIGITAL TWIN VIEW</strong><br><span style="font-size:9px;color:#a9c4dc;letter-spacing:.12em">3D SYSTEM SIMULATION — HARDWARE / ACTUATORS SIMULATED</span></div><span class="ss3d-tag">SAMPLE SS-{result.get('record',{}).get('Sample ID','DEMO').replace('GRAIN-','')}</span></div>
